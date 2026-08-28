@@ -1,0 +1,11 @@
+memory_store.json
+logs/
+.env
+venv/
+__pycache__/
+*.pyc
+reminders.json
+escalations.jsonl
+notes.json
+.pinecone/
+

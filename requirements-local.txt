@@ -1,0 +1,11 @@
+# Optional dependencies for EMBEDDING_PROVIDER=local (free, offline embeddings).
+# Install only if you do not want to rely on OpenAI credits for embeddings:
+#   pip install -r requirements-local.txt
+# Then set EMBEDDING_PROVIDER=local in your .env.
+#
+# NOTE: local embeddings use 384-dim vectors (all-MiniLM-L6-v2). The Pinecone
+# index dimension must match, so you must create a NEW index at that dimension
+# (e.g. madhan-week6-kb-local) or delete the old one.
+langchain-huggingface>=0.0.3
+langchain-community>=0.2.0
+sentence-transformers>=2.2.2
