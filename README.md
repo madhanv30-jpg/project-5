@@ -98,14 +98,27 @@ Pinecone index** — set `PINECONE_INDEX_NAME=madhan-week6-kb-local` and `EMBED_
 
 ## Usage
 
+**Console (chat in the terminal):**
 ```bash
 python main.py
 ```
-
 Commands inside the REPL: `/remind <msg>`, `/history`, `/reminders`, `quit`.
 
-On first run the agent creates the new Pinecone index `madhan-week6-kb`, embeds every
-markdown file under `docs/`, and builds the BM25 keyword index in memory.
+**Web interface (chat in a browser):**
+```bash
+D:\madhan\project\maddy\venv\Scripts\python.exe -m uvicorn app:app --reload
+```
+Then open http://127.0.0.1:8000 in your browser. API: `POST /api/chat` with
+`{"message": "..."}`.
+
+**Re-ingest the knowledge base (after editing `docs/`):**
+```bash
+python ingest.py            # add/update chunks
+python ingest.py --fresh    # wipe all vectors, then re-embed exactly your docs
+```
+
+On first run the agent creates the new Pinecone index (default `madhan-week6-kb`),
+embeds every markdown file under `docs/`, and builds the BM25 keyword index in memory.
 
 ## Tools available to the agent (21)
 
